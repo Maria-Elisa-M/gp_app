@@ -35,10 +35,10 @@ def plot_teat(trial_name, cow, ti):
         
         points = udder1
         fig =  go.Figure(data=[go.Scatter3d(x = points[:, 0], y = points[:, 1], z=points[:, 2],mode='markers',
-             marker=dict(size=1, color="red", opacity=0.8), name = "unfiltered")])
+             marker=dict(size=1, color="red", opacity=0.8), name = "gp")])
         
         points = udder2
-        fig.add_trace(go.Scatter3d(x= points[:, 0], y = points[:, 1], z=points[:, 2], mode='markers', marker=dict(color="white", size = 1, opacity = 0.8), name = "filtered"))
+        fig.add_trace(go.Scatter3d(x= points[:, 0], y = points[:, 1], z=points[:, 2], mode='markers', marker=dict(color="skyblue", size = 1, opacity = 0.8), name = "gp + teat"))
         fig.update_layout(paper_bgcolor="black", font_color = "white", plot_bgcolor = "black")
         fig.update_scenes(xaxis_visible=False, yaxis_visible=False,zaxis_visible=False)
     else: 
