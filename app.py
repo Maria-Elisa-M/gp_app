@@ -32,7 +32,7 @@ def plot_teat(trial_name, cow, ti):
         udder1 = teat_df[:,[ 0,1,3]]
         udder2 = udder1.copy()
         udder2[:, 2] = udder1[:, 2] - teat
-        rows = np.where(teat_df[:, 2] == 0)[]
+        rows = np.where(teat_df[:, 2] == 0)[0]
         teat2 = udder2[rows, :]
         
         points = udder1
