@@ -32,12 +32,14 @@ def plot_teat(trial_name, cow, ti):
         udder1 = teat_df[:,[ 0,1,3]]
         udder2 = udder1.copy()
         udder2[:, 2] = udder1[:, 2] - teat
+        rows = np.where(teat_df[:, 2] == 0)[]
+        teat2 = udder2[rows, :]
         
         points = udder1
         fig =  go.Figure(data=[go.Scatter3d(x = points[:, 0], y = points[:, 1], z=points[:, 2],mode='markers',
              marker=dict(size=1, color="red", opacity=0.8), name = "gp")])
         
-        points = udder2
+        points = teat2
         fig.add_trace(go.Scatter3d(x= points[:, 0], y = points[:, 1], z=points[:, 2], mode='markers', marker=dict(color="skyblue", size = 1, opacity = 0.8), name = "gp + teat"))
         fig.update_layout(paper_bgcolor="black", font_color = "white", plot_bgcolor = "black")
         fig.update_scenes(xaxis_visible=False, yaxis_visible=False,zaxis_visible=False)
