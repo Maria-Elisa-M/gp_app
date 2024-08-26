@@ -12,7 +12,6 @@ dirpath = os.getcwd()
 datapath = os.path.join(dirpath, "data")
 
 trial_dict = [{'label': c, 'value': c} for c in os.listdir(datapath)]
-factor_dict = [{'label': '15', 'value': '15'}, {'label': '25', 'value': '25'},{'label': '50', 'value': '50'},]
 
 
 def blank_fig():
@@ -98,6 +97,7 @@ content = html.Div(
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.DARKLY])
+server = app.server
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 
 @app.callback(
